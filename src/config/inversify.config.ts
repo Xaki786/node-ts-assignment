@@ -1,8 +1,8 @@
 import "reflect-metadata";
 import { Container } from "inversify";
 import { StockService } from '../services/stock.service';
-import { StockDAO } from '../dao/stock.dao';
-import { TransactionDAO } from '../dao/transaction.dao';
+import { StockDAO } from '../dao/stock/stock.dao';
+import { TransactionDAO } from '../dao/transaction/transaction.dao';
 import { IDataAccessObject, IStockService, IStock, ITransaction } from '../interfaces';
 import TYPES from "./types";
 
