@@ -1,7 +1,7 @@
 /** @format */
 
 import { injectable } from 'inversify';
-import { IDataAccessObject, IStock } from '../interfaces';
+import { IDataAccessObject, IStock } from '../../interfaces';
 import fs from 'fs/promises';
 import path from 'path';
 

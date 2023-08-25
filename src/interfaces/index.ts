@@ -1,5 +1,6 @@
 export interface IDataAccessObject<T> {
     findBySku(sku: string): Promise<T | unknown>;
+    findAll(): Promise<T[]>
 }
 
 
