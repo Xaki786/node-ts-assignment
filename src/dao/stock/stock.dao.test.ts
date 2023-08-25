@@ -1,20 +1,26 @@
 /** @format */
 
+import 'reflect-metadata';
 import { IDataAccessObject, IStock } from '../../interfaces';
-import { container } from '../../config/inversify.config';
+
 import fs from 'fs/promises';
 import TYPES from '../../config/types';
+import { Container } from 'inversify';
+import { StockDAO } from './stock.dao';
 
 jest.mock('fs/promises');
 
 describe('StockDAO', () => {
     let stockDAO: IDataAccessObject<IStock>;
+    let container: Container;
     const mockData: IStock[] = [
         { sku: 'test-sku-1', stock: 1000 },
         { sku: 'test-sku-2', stock: 50 },
     ];
 
     beforeEach(() => {
+        container = new Container();
+        container.bind<IDataAccessObject<IStock>>(TYPES.StockDAO).to(StockDAO);
         stockDAO = container.get<IDataAccessObject<IStock>>(TYPES.StockDAO);
     });
 
